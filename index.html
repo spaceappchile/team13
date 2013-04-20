@@ -4,26 +4,106 @@
   <meta charset="UTF-8">
   <title>SpaceApps_CL - Team 13 - GetLucky</title>
   <link rel='stylesheet' href='stylesheets/app.css' />
+  <link rel="stylesheet" type="text/css" href="vendor/jqplot/src/jquery.jqplot.css" />
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/jqplot/src/jquery.jqplot.js"></script>
+  <script src="javascripts/app.js"></script>
 </head>
 <body>
 
-  <header>
+  <section id="leftSide">
+    <div id="logo">
+      <img src="images/spaceappschallenge.png" alt="SpaceApps" />
+    </div>
+
     <nav id="menu">
       <ul>
-        <li><a href="javascript:void(0);">Home</a></li>
-        <li><a href="javascript:void(0);">WTF1</a></li>
-        <li><a href="javascript:void(0);">WTF2</a></li>
-        <li><a href="javascript:void(0);">WTF3</a></li>
-        <li><a href="javascript:void(0);">WTF4</a></li>
+        <li>
+          <a href="javascript:void(0);">
+            <span class="icon-home"></span>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">
+            <span class="icon-gauge"></span>
+            Insights
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">
+            <span class="icon-chart-line"></span>
+            Analysis
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">
+            <span class="icon-clock"></span>
+            RealTime
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">
+            <span class="icon-off"></span>
+            Logout
+          </a>
+        </li>
       </ul>
-    </nav>
-  </header>
+    </nav>  
+  </section>
 
   <section id="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, illo consectetur soluta nobis ullam eos quisquam ea maxime sit sint. Natus, nulla vero quos necessitatibus omnis praesentium reiciendis laboriosam veritatis.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, illo consectetur soluta nobis ullam eos quisquam ea maxime sit sint. Natus, nulla vero quos necessitatibus omnis praesentium reiciendis laboriosam veritatis.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, illo consectetur soluta nobis ullam eos quisquam ea maxime sit sint. Natus, nulla vero quos necessitatibus omnis praesentium reiciendis laboriosam veritatis.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, illo consectetur soluta nobis ullam eos quisquam ea maxime sit sint. Natus, nulla vero quos necessitatibus omnis praesentium reiciendis laboriosam veritatis.</p>
+    <div class="contentTitle">
+      <h1><span class="icon-gauge"></span> Insights</h1>
+      <h2>Data analysis</h2>  
+    </div>
+    <div class="contentBox">
+      <div id="example" style="width: 100%; height: 420px;"></div>
+    </div>
+    <div class="contentBox">
+      <table class="table" width="100%">
+        <tr>
+          <th>#</th>
+          <th>Array</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td class="tac">1</td>
+          <td>Array003</td>
+          <td class="tac">
+            <div class="array-status array-success"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tac">1</td>
+          <td>Array003</td>
+          <td class="tac">
+            <div class="array-status array-error"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tac">1</td>
+          <td>Array003</td>
+          <td class="tac">
+            <div class="array-status array-success"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tac">1</td>
+          <td>Array003</td>
+          <td class="tac">
+            <div class="array-status array-error"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tac">1</td>
+          <td>Array003</td>
+          <td class="tac">
+            <div class="array-status array-success"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
   </section>
   
 </body>

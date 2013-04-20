@@ -14,31 +14,43 @@
 @p-sans: 'Helvetica';
 @p-red: #C2272D;
 @p-green: #1E6C6C;
-@p-blue: #2E5A67;
+@p-blue: #7597B9;
+@p-gray-b: lighten(#CBCBCB, 17%);
 
 /**
 *  Start building the next web here, Sir
 */
+* {
+  .box-sizing();
+}
 body {
   background: #CCCCCC url('../images/space-art-wallpapers-05.jpg');
 }
 
-.row {
-  width: 960px;
-}
+section#leftSide {
+  #logo {
+    img {
+      border: 20px black solid;  
+    }
+  }
 
-header {
-  #gradient > .vertical(#7597B9, darken(#7597B9, 15%));
   nav#menu {
-    .row();
-    overflow: hidden;
-    padding: 20px;
+    width: 165px;
+    background: @p-white;
     ul {
-      .h-menu();
-      .grid(16);
+      .v-menu();
       li {
         a {
+          #gradient > .vertical(@p-blue, darken(@p-blue, 15%));
           color: @p-white;
+          text-align: center;
+          padding: 20px;
+          text-transform: uppercase;
+          font-weight: bold;
+          .text-shadow(1px 1px @p-black);
+          &:hover {
+            #gradient > .vertical(lighten(@p-blue, 10%), lighten(@p-blue, 15%));
+          }
         }
       }
     }
@@ -46,8 +58,56 @@ header {
 }
 
 section#content {
-  .row();
+  width: 85%;
+  top: 0;
+  position: absolute;
   background: @p-white;
   padding: 20px;
-  .box-shadow();
+  margin-left: 180px;
+  .box-shadow(1px 1px 10px #BDD97E);
+  .contentBox {
+    background: lighten(@p-gray-b, 2%);
+    margin-top: 20px;
+    border: 1px solid @p-gray-b;
+    border-top: 2px solid @p-blue;
+    padding: 20px;
+    .box-shadow();
+  }
+  .contentTitle {
+    h1 {
+      text-transform: uppercase;
+    }
+    h2 {
+      color: lighten(@p-gray, 5%);
+      font-size: 1.3em;
+    }
+    hr {
+      border: 1px solid @p-gray;
+    }
+  }
+}
+
+.table {
+  tr:hover {
+    background: lighten( @p-blue, 35%) !important;
+  }
+  tr:nth-child(2n) {
+    background: @p-gray-b;
+  }
+}
+
+.array-status {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #DDD;
+  .border-radius(20px);
+  &.array-success {
+    background: lighten(#99bb2d, 20%);
+    border: 1px solid #99bb2d;
+  }
+  &.array-error {
+    background: lighten(#D16B66, 20%);
+    border: 1px solid #D16B66;
+  }
 }
