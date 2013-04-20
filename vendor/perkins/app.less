@@ -1,0 +1,53 @@
+/* Init Perkins */
+@import "assets/_core";
+
+/* Perkins Bowties */
+@import "assets/_grid"; // Import the Configurable Grid System
+@import "assets/_feedback"; // Import Feedback helpers .notice, .success, .error, etc...
+@import "assets/_form"; // Import the styles for forms (ul.form>li>label+input)
+@import "assets/_table"; // Import styles for tables (responsive too)
+// @import "assets/_ui"; // When using Perkins with jQuery UI
+
+/* Perkins External Bowties */
+@import "icons/_icons";
+
+@p-sans: 'Helvetica';
+@p-red: #C2272D;
+@p-green: #1E6C6C;
+@p-blue: #2E5A67;
+
+/**
+*  Start building the next web here, Sir
+*/
+body {
+  background: #CCCCCC url('../images/space-art-wallpapers-05.jpg');
+}
+
+.row {
+  width: 960px;
+}
+
+header {
+  #gradient > .vertical(#7597B9, darken(#7597B9, 15%));
+  nav#menu {
+    .row();
+    overflow: hidden;
+    padding: 20px;
+    ul {
+      .h-menu();
+      .grid(16);
+      li {
+        a {
+          color: @p-white;
+        }
+      }
+    }
+  }
+}
+
+section#content {
+  .row();
+  background: @p-white;
+  padding: 20px;
+  .box-shadow();
+}

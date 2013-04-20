@@ -8,7 +8,7 @@
 require 'lib/LogParser.class.php';
 
 $path = 'logs/';
-$log  = 'log2013-04-17T23:51:22.735--2013-04-17T23:57:27.505--AOS.xml';
+$log  = str_replace('/' , ':', 'log2013-04-17T23/51/22.735--2013-04-17T23/57/27.505--AOS.xml');
 $filename = $path . $log;
 
 $parser = new LogParser($filename);
