@@ -36,14 +36,14 @@ class CheckProcess {
         
     );
     
-    private $arrayStatus = array();
+    private $arrayStatus = array('Array003'=>0);
 
     public function validateProcess($logRegister) {
-        $step = $this->searchStep('CONTROL/Array003');
+        $step = $this->searchStep('Array003');
         $isStep = preg_match('|'.$this->arrayHappyProcess[$step+1].'|', $logRegister);
         if($isStep)
         {
-            $this->setStep('CONTROL/Array003');
+            $this->setStep('Array003');
         }
         return $isStep;
     }

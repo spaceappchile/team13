@@ -46,21 +46,35 @@ class LogParser {
                         $this->parseLine($line, $iterations);
 
                         $consulta = 'SELECT
-                `alma_array`.`id`,
-                `alma_array`.`name`,
-                `alma_array`.`code`
-                FROM `team13`.`alma_array`
-                WHERE `code`= "Array003";
-                ';
+                            `id`,
+                            `name`,
+                            `code`
+                            FROM `team13`.`alma_array`
+                            WHERE `code`= "Array003";
+                            ';
 
                         $resultados = $db->consulta($consulta);
 
                         if ($db->num_rows($resultados) > 0) {
-                            while ($resultados = $db->fetch_array($consulta)) {
-                                $arrayId = $resultados['id'];
+                            while ($resultadosData = $db->fetch_array($resultados)) {
+                                $arrayId = $resultadosData['id'];
                             }
                         }
-                        if ($checkProcess->searchStep('Array003') == 0) {
+                        
+                        $consultaProcess =  'SELECT
+                                    `id`,
+                                    `alma_array_id`,
+                                    `sequence_id`,
+                                    `start_date`,
+                                    `end_date`
+                                    FROM `process`
+                                    WHERE 
+                                    `alma_array_id` = '.$arrayId.'
+                                    ;';
+                        $resultados = $db->consulta($consultaProcess);
+
+                        
+                        if ($checkProcess->searchStep('Array003') < 1 && $db->num_rows($resultados) == 0) {
                             $consultaProcess = 'INSERT INTO `team13`.`process`
                                         (`alma_array_id`,
                                         `sequence_id`,
@@ -69,12 +83,35 @@ class LogParser {
                                         VALUES
                                         (
                                         '.$arrayId.',
-                                        <{sequence_id: }>,
-                                        <{start_date: }>,
-                                        <{end_date: }>
+                                        1,
+                                        now(),
+                                        null
                                         );
                                         ';
+                            $resultados = $db->consulta($consultaProcess);
+                            $consultaProcess =  'SELECT
+                                        `id`,
+                                        `alma_array_id`,
+                                        `sequence_id`,
+                                        `start_date`,
+                                        `end_date`
+                                        FROM `process`
+                                        WHERE 
+                                        `alma_array_id` = '.$arrayId.'
+                                        ;';
+                            $resultados = $db->consulta($consultaProcess);
+                            if ($db->num_rows($resultados) > 0) {
+                                while ($resultadosData = $db->fetch_array($resultados)) {
+                                    $processId = $resultadosData['id'];
+                                }
+                            }
                         }
+                        else {
+                            while ($resultadosData = $db->fetch_array($resultados)) {
+                                $processId = $resultadosData['id'];
+                            }
+                        }
+                        
                         xml_parser_free($this->parser);
                     }
                     /*
