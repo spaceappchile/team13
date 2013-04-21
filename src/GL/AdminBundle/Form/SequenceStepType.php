@@ -12,6 +12,7 @@ class SequenceStepType extends AbstractType
   {
     $builder
       ->add('name')
+      ->add('pattern')
     ;
   }
 

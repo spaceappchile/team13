@@ -13,7 +13,6 @@ class SequenceType extends AbstractType
     $builder
       ->add('name')
       ->add('description')
-      ->add('pattern')
     ;
   }
 

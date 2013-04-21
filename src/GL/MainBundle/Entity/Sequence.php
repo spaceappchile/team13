@@ -36,13 +36,6 @@ class Sequence
   private $description;
 
   /**
-   * @var description
-   *
-   * @ORM\Column(name="pattern", type="text", nullable=true)
-   */
-  private $pattern;
-
-  /**
    * @ORM\OneToMany(targetEntity="Process", mappedBy="sequence")
    */
   private $processes;
@@ -142,28 +135,5 @@ class Sequence
   public function getProcesses()
   {
     return $this->processes;
-  }
-
-  /**
-   * Set pattern
-   *
-   * @param string $pattern
-   * @return Sequence
-   */
-  public function setPattern($pattern)
-  {
-    $this->pattern = $pattern;
-  
-    return $this;
-  }
-
-  /**
-   * Get pattern
-   *
-   * @return string 
-   */
-  public function getPattern()
-  {
-    return $this->pattern;
   }
 }

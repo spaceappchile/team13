@@ -29,6 +29,13 @@ class SequenceStep
   private $name;
 
   /**
+   * @var description
+   *
+   * @ORM\Column(name="pattern", type="text", nullable=true)
+   */
+  private $pattern;
+
+  /**
    * @ORM\OneToMany(targetEntity="ProcessEvent", mappedBy="step")
    */
   private $processEvents;
@@ -105,5 +112,28 @@ class SequenceStep
   public function getProcessEvents()
   {
     return $this->processEvents;
+  }
+
+  /**
+   * Set pattern
+   *
+   * @param string $pattern
+   * @return SequenceStep
+   */
+  public function setPattern($pattern)
+  {
+    $this->pattern = $pattern;
+  
+    return $this;
+  }
+
+  /**
+   * Get pattern
+   *
+   * @return string 
+   */
+  public function getPattern()
+  {
+    return $this->pattern;
   }
 }

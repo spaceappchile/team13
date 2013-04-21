@@ -12,6 +12,7 @@ class AlmaArrayType extends AbstractType
   {
     $builder
       ->add('name')
+      ->add('code')
     ;
   }
 
