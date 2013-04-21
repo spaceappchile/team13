@@ -2,4 +2,3 @@
 app/cache/*
 app/logs/*
 logs/*
-vendor/
