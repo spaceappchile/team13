@@ -26,16 +26,16 @@ class LogParser
     $max_iterations = 14000;
     $previousLine = '';
 
-    while( $line = fgets($fp) ) 
+    while( $line = fgets(STDIN) ) 
     {
       $line = trim($line);
 
       if ($iterations > 3) {
 
         if ( preg_match('/(.+)>$/i', $line)) {
-         
+            preg_match('/\<(.\w+)/i', $line,$type);
           //*
-          if($checkProcess->validateProcess($line))
+          if($checkProcess->validateProcess($line)||(isset($type[1])&&$type[1]=='Error'))
           {
                 $this->parser = xml_parser_create('UTF-8');
 
