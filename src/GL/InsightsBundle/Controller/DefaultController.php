@@ -21,12 +21,22 @@ class DefaultController extends Controller
     $query = '
     SELECT e.id, e.status, DATE_FORMAT(e.execution_date,\'%y-%m-%d %H:%i\') as \'execution_date\', COUNT(e.id) as \'count\'
     FROM process_event e 
+    WHERE e.status = 1
     GROUP by status, DATE_FORMAT(execution_date,\'%y-%m-%d %H:%i\')
     ';
-    $result = $em->getConnection()->fetchAll($query);
+    $result1 = $em->getConnection()->fetchAll($query);
+
+    $query = '
+    SELECT e.id, e.status, DATE_FORMAT(e.execution_date,\'%y-%m-%d %H:%i\') as \'execution_date\', COUNT(e.id) as \'count\'
+    FROM process_event e 
+    WHERE e.status = 2
+    GROUP by status, DATE_FORMAT(execution_date,\'%y-%m-%d %H:%i\')
+    ';
+    $result2 = $em->getConnection()->fetchAll($query);
 
     return array(
-      'result' => $result
+      'result1' => $result1,
+      'result2' => $result2,
     );
   }
 }

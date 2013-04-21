@@ -11,14 +11,20 @@
   <div id="process" style="width: 100%; height: 460px;"></div>
   <script>
     $(document).ready(function(){
-     data = [];
-     {% for event in result %}
+     status1 = [];
+     {% for event in result1 %}
      event = ['{{ event.execution_date }}', {{ event.count }}];
-     data.push(event);
+     status1.push(event);
      {% endfor %}
 
-      var plot1 = $.jqplot ('process', [data], {
-        seriesColors: [ '#FFF' ],
+     status2 = [];
+     {% for event in result2 %}
+     event = ['{{ event.execution_date }}', {{ event.count }}];
+     status2.push(event);
+     {% endfor %}
+
+      var plot1 = $.jqplot ('process', [status1, status2], {
+        seriesColors: [ '#FFFFFF', '#9BB3CC' ],
         title : 'XML Analysis',
         grid : {
           gridLineColor: '#DFDFDF',
