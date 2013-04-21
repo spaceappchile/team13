@@ -5,7 +5,7 @@
 {% block content %}
 <div class="contentTitle">
   <h1><span class="icon-cog"></span> Processes</h1>
-  <h2>View the process data</h2>  
+  <h2>View the processed data</h2>  
 </div>
 
 <div class="contentBox">
@@ -17,7 +17,8 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Last Step</th>
-        <th>Last Status</th>        
+        <th>Last Status</th>    
+        <th>Details</th>    
       </tr>
     </thead>
     <tbody>
@@ -34,6 +35,9 @@
           {% else %}
           <div class="array-status array-error"></div>
           {% endif %}
+        </td>
+        <td class="tac">
+          <a href="{{ path('process_detail', { id : process.id }) }}"><span class="iconf-plus"></span> See more</a>
         </td>
       </tr>
       {% endfor %}

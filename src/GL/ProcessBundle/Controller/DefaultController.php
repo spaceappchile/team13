@@ -43,4 +43,26 @@ class DefaultController extends Controller
       'processes' => $processes,
     );
   }
+
+  /**
+   * @Route("/{id}/detail", name="process_detail")
+   * @Template()
+   */
+  public function detailAction($id)
+  {
+    $em = $this->getDoctrine()->getEntityManager();
+    $event = $em->getRepository('GLMainBundle:ProcessEvent')
+    ->createQueryBuilder('e')
+    ->where('e.process = :process')
+    ->setParameter('process', $id)
+    ->orderBy('e.step', 'ASC')
+    ->getQuery()
+    ->getResult()
+    ;
+
+    return array(
+      'id'    => $id,
+      'event' => $event,
+    );
+  }
 }

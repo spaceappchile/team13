@@ -1,0 +1,41 @@
+{% extends "::base.html.twig" %}
+
+{% set mainMenu = 'processes' %}
+
+{% block content %}
+<div class="contentTitle">
+  <h1><span class="icon-cog"></span> Process Detail</h1>
+  <h2>Viewing process #{{ id }}</h2>  
+</div>
+
+<div class="contentButtons">
+  <a href="{{ path('processes') }}"> <span class="iconf-left-bold"></span> Back to processes </a>
+</div>
+
+<div class="contentBox">
+  <table class="table" width="100%">
+    <thead>
+      <th>ID</th>
+      <th>Step</th>
+      <th>Execution Date</th>
+      <th>Status</th>
+    </thead>
+    <tbody>
+      {% for detail in event %}
+      <tr>
+        <td class="tac">{{ detail.id }}</td>
+        <td class="tac">{{ detail.step.name }}</td>
+        <td class="tac">{{ detail.executionDate|date('d-m-Y H:i:s') }}</td>
+        <td class="tac">
+          {% if detail.status == 1 %}
+          <div class="array-status array-success"></div>
+          {% else %}
+          <div class="array-status array-error"></div>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
