@@ -1,5 +1,7 @@
 <?php
 
+require_once 'MySQL.php';
+
 /**
  * Description of CheckProcess
  *

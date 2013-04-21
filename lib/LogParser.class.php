@@ -1,6 +1,7 @@
 <?php
 
 require 'CheckProcess.class.php';
+require 'MySQL.php';
 
 /**
  * LogParser
@@ -20,6 +21,7 @@ class LogParser
 
   public function parse()
   {
+    $db = new MySQL();   
     $checkProcess = new CheckProcess();
     $fp = fopen($this->filename, 'r');
     $iterations = 0;
@@ -48,6 +50,7 @@ class LogParser
                 $line = $previousLine . $line;
                 $this->parseLine($line, $iterations);
 
+                $db->consulta($consulta);
                 xml_parser_free($this->parser);
           }
            /* 
