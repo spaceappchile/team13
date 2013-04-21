@@ -5,7 +5,7 @@
 {% block content %}
 <div class="contentTitle">
   <h1><span class="icon-cog"></span> Process Detail</h1>
-  <h2>Viewing process #{{ id }}</h2>  
+  <h2><a href="{{ path('processes') }}">Processes</a> > Viewing process #{{ id }}</h2>  
 </div>
 
 <div class="contentButtons">
@@ -19,6 +19,7 @@
       <th>Step</th>
       <th>Execution Date</th>
       <th>Status</th>
+      <th>Details</th>
     </thead>
     <tbody>
       {% for detail in event %}
@@ -31,6 +32,16 @@
           <div class="array-status array-success"></div>
           {% else %}
           <div class="array-status array-error"></div>
+          {% endif %}
+        </td>
+        <td class="tac">
+          {% if detail.status == 2 %}
+          <a href="{{ path('event_detail', { id : detail.id }) }}">
+            <span class="iconf-plus"></span> 
+            See more
+          </a>
+          {% else %}
+          &nbsp;
           {% endif %}
         </td>
       </tr>

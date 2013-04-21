@@ -65,4 +65,27 @@ class DefaultController extends Controller
       'event' => $event,
     );
   }
+
+  /**
+   * @Route("/{id}/event_detail", name="event_detail")
+   * @Template()
+   */
+  public function eventDetailAction($id)
+  {
+    $em = $this->getDoctrine()->getEntityManager();
+    $event = $em->getRepository('GLMainBundle:ProcessEvent')->find($id);
+
+    $details = $em->getRepository('GLMainBundle:ProcessEventDetail')
+    ->createQueryBuilder('ed')
+    ->where('ed.event = :event')
+    ->setParameter('event', $id)
+    ->getQuery()
+    ->getResult()
+    ;
+
+    return array(
+      'event' => $event, 
+      'details' => $details,
+    );
+  }
 }
