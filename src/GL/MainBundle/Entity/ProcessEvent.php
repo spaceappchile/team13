@@ -47,6 +47,18 @@ class ProcessEvent
    */
   private $executionDate;
 
+  /**
+   * @ORM\OneToMany(targetEntity="ProcessEventDetail", mappedBy="event")
+   */
+  private $details;
+
+  /**
+   * Constructor
+   */
+  public function __construct()
+  {
+    $this->details = new \Doctrine\Common\Collections\ArrayCollection();
+  }
 
   /**
    * Get id
@@ -148,5 +160,38 @@ class ProcessEvent
   public function getExecutionDate()
   {
     return $this->executionDate;
+  }
+  
+  /**
+   * Add details
+   *
+   * @param \GL\MainBundle\Entity\ProcessEventDetail $details
+   * @return ProcessEvent
+   */
+  public function addDetail(\GL\MainBundle\Entity\ProcessEventDetail $details)
+  {
+    $this->details[] = $details;
+  
+    return $this;
+  }
+
+  /**
+   * Remove details
+   *
+   * @param \GL\MainBundle\Entity\ProcessEventDetail $details
+   */
+  public function removeDetail(\GL\MainBundle\Entity\ProcessEventDetail $details)
+  {
+    $this->details->removeElement($details);
+  }
+
+  /**
+   * Get details
+   *
+   * @return \Doctrine\Common\Collections\Collection 
+   */
+  public function getDetails()
+  {
+    return $this->details;
   }
 }
