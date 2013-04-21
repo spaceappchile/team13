@@ -104,7 +104,7 @@ class ProcessEventDetail
    * @param \GL\MainBundle\Entity\Event $event
    * @return ProcessEventDetail
    */
-  public function setEvent(\GL\MainBundle\Entity\Event $event = null)
+  public function setEvent(\GL\MainBundle\Entity\ProcessEvent $event = null)
   {
     $this->event = $event;
   

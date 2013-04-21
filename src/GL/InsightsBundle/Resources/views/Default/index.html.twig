@@ -8,7 +8,57 @@
   <h2>Data analysis</h2>  
 </div>
 <div class="contentBox">
-  <div id="example" style="width: 100%; height: 420px;"></div>
+  <div id="process" style="width: 100%; height: 460px;"></div>
+  <script>
+    $(document).ready(function(){
+     data = [];
+     {% for event in result %}
+     event = ['{{ event.execution_date }}', {{ event.count }}];
+     data.push(event);
+     {% endfor %}
+
+      var plot1 = $.jqplot ('process', [data], {
+        seriesColors: [ '#FFF' ],
+        title : 'XML Analysis',
+        grid : {
+          gridLineColor: '#DFDFDF',
+          borderColor: '#444',
+          borderWidth: 0.5,
+          background: '#0F2E42'
+        },
+        axes : {
+          xaxis : {
+            pad: 0,
+            renderer:$.jqplot.DateAxisRenderer,
+            tickOptions:{
+              formatString:'%H:%M'
+            },
+            label : 'Tiempo',
+            labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+            labelOptions: {
+              fontFamily: 'Dosis',
+              fontSize: '14pt'
+            }
+          },
+          yaxis : {
+            label : 'Cant. Procesos',
+            labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+            labelOptions: {
+              fontFamily: 'Dosis',
+              fontSize: '14pt'
+            }
+          }
+        },
+        highlighter: {
+          show: true,
+          sizeAdjust: 7.5
+        },
+        cursor: {
+          show: false
+        }
+      });
+    });
+  </script>
 </div>
 <div class="contentBox">
   <table class="table" width="100%">
