@@ -43,7 +43,7 @@ class Process
   /**
    * @var \DateTime
    *
-   * @ORM\Column(name="end_date", type="datetime")
+   * @ORM\Column(name="end_date", type="datetime", nullable=true)
    */
   private $endDate;
 

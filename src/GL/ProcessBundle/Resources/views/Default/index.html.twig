@@ -20,6 +20,24 @@
         <th>Last Status</th>        
       </tr>
     </thead>
+    <tbody>
+      {% for process in processes %}
+      <tr>
+        <td class="tac">{{ process.id }}</td>
+        <td class="tac">{{ process.name }}</td>
+        <td class="tac">{{ process.start_date }}</td>
+        <td class="tac">{{ process.end_date }}</td>
+        <td class="tac">{{ process.step_name }}</td>
+        <td class="tac">
+          {% if process.status == 1 %}
+          <div class="array-status array-success"></div>
+          {% else %}
+          <div class="array-status array-error"></div>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
   </table>
 </div>
 {% endblock content %}
