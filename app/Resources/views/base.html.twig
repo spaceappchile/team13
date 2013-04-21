@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}SpaceApps_CL - Team 13 - GetLucky{% endblock title %}</title>
+  <link rel="stylesheet" href="{{ asset('stylesheets/app.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('vendor/jqplot/src/jquery.jqplot.css') }}" />
+  <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('vendor/jqplot/src/jquery.jqplot.js') }}"></script>
+  <script src="{{ asset('javascripts/jquery.aListToSelect.js') }}"></script>
+  <script src="{{ asset('javascripts/app.js') }}"></script>
+</head>
+<body>
+
+  <section id="leftSide">
+    <div id="logo">
+      <img src="{{ asset('images/spaceappschallenge.png') }}" alt="SpaceApps" />
+    </div>
+
+    <nav id="menu">
+      {% set mainMenu = mainMenu|default('') %}
+      <ul>
+        <li>
+          <a href="{{ path('_welcome') }}" class="{% if app.request.attributes.get('_route') == 'home' %}current{% endif %}">
+            <span class="icon-home"></span>
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="{{ path('insights') }}" class="{% if mainMenu == 'insights' %}current{% endif %}">
+            <span class="icon-gauge"></span>
+            Insights
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" class="{% if mainMenu == 'realtime' %}current{% endif %}">
+            <span class="icon-clock"></span>
+            RealTime
+          </a>
+        </li>
+        <li>
+          <a href="{{ path('admin') }}" class="{% if mainMenu == 'admin' %}current{% endif %}">
+            <span class="icon-cog"></span>
+            Admin
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/spaceappchile/team13">
+            <span class="icon-cog"></span>
+            Fork it
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">
+            <span class="icon-off"></span>
+            Logout
+          </a>
+        </li>
+      </ul>
+      <div id="mobileMenu">
+        <h5><span class="icon-th-list"></span> Menú</h5>
+      </div>
+    </nav>  
+  </section>
+
+  <section id="content">
+    {% block content %}
+    {% endblock content %}
+  </section>
+  
+</body>
+</html>

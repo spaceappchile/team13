@@ -1,0 +1,271 @@
+/* Init Perkins */
+@import "assets/_core";
+
+/* Perkins Bowties */
+@import "assets/_grid"; // Import the Configurable Grid System
+@import "assets/_feedback"; // Import Feedback helpers .notice, .success, .error, etc...
+@import "assets/_form"; // Import the styles for forms (ul.form>li>label+input)
+@import "assets/_table"; // Import styles for tables (responsive too)
+// @import "assets/_ui"; // When using Perkins with jQuery UI
+
+/* Perkins External Bowties */
+@import "icons/_icons";
+
+@import url(http://fonts.googleapis.com/css?family=Dosis:400,700);
+
+@p-sans: 'Dosis';
+@p-red: #C2272D;
+@p-green: #1E6C6C;
+@p-blue: #7597B9;
+@p-blue-dark: #0F2E42;
+@p-gray-b: lighten(#CBCBCB, 17%);
+
+/**
+*  Start building the next web here, Sir
+*/
+* {
+  .box-sizing();
+}
+
+body {
+  background: #CCCCCC url('../images/space-art-wallpapers-05.jpg');
+}
+
+section#leftSide {
+  #logo {
+    text-align: center;
+    img {
+      margin: 0 auto;
+      border: 20px black solid;  
+      width: 100px;
+    }
+  }
+  nav#menu {
+    ul {
+      .v-menu();
+      display: none;
+      li {
+        a {
+          #gradient > .vertical(@p-blue, darken(@p-blue, 15%));
+          color: @p-white;
+          text-align: center;
+          padding: 20px;
+          text-transform: uppercase;
+          font-weight: bold;
+          .text-shadow(1px 1px @p-black);
+          &:hover {
+            #gradient > .vertical(lighten(@p-blue, 10%), lighten(@p-blue, 15%));
+          }
+          &.current {
+            background: @p-black;
+          }
+        }
+      }
+    }
+    #mobileMenu {
+      #gradient > .vertical(@p-blue, darken(@p-blue, 15%));
+      padding: 20px;
+      color: @p-white;
+      select {
+        width: 100%;
+      }
+    }
+  }
+}
+
+section#content {
+  width: 100%;
+  margin: 0 auto;
+  background: @p-white;
+  padding: 20px;
+  .box-shadow(1px 1px 10px #BDD97E);
+  .contentBox {
+    background: lighten(@p-gray-b, 2%);
+    margin-top: 20px;
+    border: 1px solid @p-gray-b;
+    border-top: 2px solid @p-blue;
+    padding: 20px;
+    .box-shadow();
+  }
+  .contentTitle {
+    h1 {
+      text-transform: uppercase;
+    }
+    h2 {
+      color: lighten(@p-gray, 5%);
+      font-size: 1.9em;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+    hr {
+      border: 1px solid @p-gray;
+    }
+  }
+}
+
+.table {
+  tr:hover {
+    background: lighten( @p-blue, 35%) !important;
+  }
+  tr:nth-child(2n) {
+    background: @p-gray-b;
+  }
+}
+
+.chart-title {
+  color: #0F2E42;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.array-status {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #DDD;
+  .border-radius(20px);
+  &.array-success {
+    background: lighten(#99bb2d, 20%);
+    border: 1px solid #99bb2d;
+  }
+  &.array-error {
+    background: lighten(#D16B66, 20%);
+    border: 1px solid #D16B66;
+  }
+}
+
+.table {
+  tr {
+    th {
+      background: @p-blue-dark;
+    }
+  }
+}
+
+// Big Smarthpone wtf
+@media (min-width: 640px) {
+  section#leftSide {
+    nav#menu {
+      ul {
+        width: 625px;
+        display: block;
+        .h-menu();
+        #gradient > .vertical(@p-blue, darken(@p-blue, 15%));
+        margin: 0 auto;
+        margin-bottom: 20px;
+        li {
+          a {
+            font-size: 0.95em;
+            padding: 20px 10px;
+          }
+        }
+      }
+    }
+    #mobileMenu {
+      display: none;
+    }
+  }
+}
+
+// Tablet 1
+@media (min-width: 768px) {
+  section#leftSide {
+    nav#menu {
+      ul {
+        width: 753px;
+      }
+    }
+  }
+}
+
+// Tablet 2
+@media (min-width: 800px) {
+  section#leftSide {
+    nav#menu {
+      ul {
+        width: 800px;
+      }
+    }
+  }
+}
+
+// Tablet 3
+@media (min-width: 980px) {
+  section#leftSide {
+    nav#menu {
+      ul {
+        width: 980px;
+      }
+    }
+  }
+}
+
+// Desktop
+@media(min-width:1024px) and (max-width:2048px) {
+  section#leftSide {
+    #logo {
+      text-align: inherit;
+      img {
+        border: 20px black solid;  
+        width: 165px;
+      }
+    }
+
+    nav#menu {
+      width: 165px;
+      background: @p-white;
+      ul {
+        .v-menu();
+        width: 165px;
+        li {
+          a {
+            background-image: url('images/tcloth.png');
+            #gradient > .vertical(@p-blue, darken(@p-blue, 15%));
+            color: @p-white !important;
+            text-align: center;
+            padding: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            .text-shadow(1px 1px @p-black);
+            font-size: 1em;
+            &:hover {
+              #gradient > .vertical(lighten(@p-blue, 10%), lighten(@p-blue, 15%));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section#content {
+    width: 85%;
+    top: 0;
+    position: absolute;
+    background: @p-white;
+    padding: 20px;
+    margin-left: 180px;
+    .box-shadow(1px 1px 10px #BDD97E);
+    .contentBox {
+      background: lighten(@p-gray-b, 2%);
+      margin-top: 20px;
+      border: 1px solid @p-gray-b;
+      border-top: 2px solid @p-blue;
+      padding: 20px;
+      .box-shadow();
+    }
+    .contentTitle {
+      h1 {
+        text-transform: uppercase;
+      }
+      h2 {
+        color: lighten(@p-gray, 5%);
+        font-size: 1.3em;
+      }
+      hr {
+        border: 1px solid @p-gray;
+      }
+    }
+  }
+}
+

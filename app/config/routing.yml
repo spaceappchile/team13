@@ -1,0 +1,18 @@
+gl_insights:
+    resource: "@GLInsightsBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+gl_admin:
+    resource: "@GLAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+gl_main:
+    resource: "@GLMainBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+_welcome:
+    pattern:  /
+    defaults: { _controller: GLMainBundle:Default:index }
