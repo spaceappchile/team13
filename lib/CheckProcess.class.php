@@ -1,6 +1,6 @@
 <?php
 
-require_once 'MySQL.php';
+require_once 'MySQL.class.php';
 
 /**
  * Description of CheckProcess
