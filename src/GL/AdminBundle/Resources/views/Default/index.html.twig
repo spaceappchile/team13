@@ -1,0 +1,30 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+<div class="contentTitle">
+  <h1><span class="icon-cog"></span> Admin</h1>
+  <h2>Configure the app</h2>  
+</div>
+<div class="contentBox">
+  <ul class="v-menu">
+    <li>
+      <a href="{{ path('admin_array') }}">
+        <span class="icon-cog"></span>
+        Arrays
+      </a>
+    </li>
+    <li>
+      <a href="{{ path('admin_sequence') }}">
+        <span class="icon-cog"></span>
+        Sequence
+      </a>
+    </li>
+    <li>
+      <a href="{{ path('admin_sequence_step') }}">
+        <span class="icon-cog"></span>
+        Sequence Step
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock content %}

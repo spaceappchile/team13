@@ -1,0 +1,35 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+<div class="contentTitle">
+  <h1><span class="icon-cog"></span> Admin</h1>
+  <h2><a href="{{ path('admin') }}">Admin</a> > Arrays</h2>  
+</div>
+
+<div class="contentButtons">
+  <a href="{{ path('admin_array_new') }}" class="btn">New</a>
+</div>
+
+<div class="contentBox">
+  <table class="table" width="100%">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+      <tr>
+        <td><a href="{{ path('admin_array_edit', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+        <td>{{ entity.name }}</td>
+        <td>
+          <a href="{{ path('admin_array_edit', { 'id': entity.id }) }}" class="btn sbtn">edit</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

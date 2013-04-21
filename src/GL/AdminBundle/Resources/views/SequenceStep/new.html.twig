@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+<div class="contentTitle">
+  <h1><span class="icon-cog"></span> Admin</h1>
+  <h2>New Sequence Step</h2>  
+</div>
+
+<div class="contentBox">
+  <form action="{{ path('admin_sequence_step_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+      <button type="submit" class="btn">Create</button>
+    </p>
+  </form>
+  <hr>
+  <a href="{{ path('admin_sequence_step') }}">Back to the list</a> 
+</div>
+{% endblock content %}
