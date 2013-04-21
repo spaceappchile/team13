@@ -9,9 +9,63 @@
 
   <div class="contentBox">
     <h1 class="tac">Desafío ALMA</h1>
-    <h2 class="tac">"Análisis del desempeño del Sistema"</h2>
+    <h2 class="tac">"Análisis del desempeño del Sistema mediante analisis de Logs"</h2>
     <h4 class="tac">Presentado por <span>Get Lucky!</span> </h4>  
-    <hr>
+  </div>
+  <div class="contentBox">
+    <h2>Antecedentes</h2>
+    <p>
+      ALMA cuenta con un sistema distribuido de registro de sucesos de sus operaciones, que entregan DEBUG de cada uno de los procesos de preparación y configuración de sus arrays (conjunto de antenas) para el estudio de alguna de las zonas del espacio.      
+    </p>
+    <p>
+      Estos logs en teoría permiten determinar el estado de los procesos aplicados a los arrays y registra también los errores. Sin embargo, cuando esto ocurre, el trabajo se complica debido a que se  pueden generar 5 millones de registros en una hora, hasta 15 GB una noche.      
+    </p>
+    <p>
+      En resumen, el desafio consiste en analizar registros de logs de múltiples procesos, entregando información de valor y en tiempo real a los operarios, esto de forma eficiente y viable.
+    </p>
+    <h2>El problema</h2>
+    <p>Conocer el estado de los procesos de manipulación de los ARRAY mediante análisis de logs generados.</p>
+    <h2>La solución</h2>
+    <p>
+      Procesador de logs EFICIENTE (por el alto volumen de datos)<br />
+      Interfaz web de análisis de los datos YA FILTRADOS.<br />
+      Separación del análisis en PROCESOS y PASOS. <br />
+    </p>
+    <p>
+      PROCESO 345
+      <table>
+        <tr>
+          <td>PASO 1</td>
+          <td>OK</td>
+        </tr>
+        <tr>
+          <td>PASO 2</td>
+          <td>OK</td>
+        </tr>
+        <tr>
+          <td>PASO 3</td>
+          <td>ERROR -> (detalle de todos los logs de error)</td>
+        </tr>
+      </table>
+      Por lo tanto el PROCESO 345 falla en alguno de los pasos, levanta una alarma.
+    </p>
+    <p>
+      Tecnologías utilizadas:
+      <ul>
+        <li>PHP5 estructurado para el análisis de logs (0.2 segundos un archivo de 133 MB)</li>
+        <li>PHP5 symfony2 para interfaz web (y mobile)</li>
+        <li>Base de datos MySQL para registro de datos relevantes.</li>
+      </ul>  
+    </p>
+    <p>
+      Información sobre el desafio:<br />
+      http://spaceappschallenge.org/challenge/renewable-energy-explorer/<br />
+      <br />
+      Renewable Energy Resource Mapping<br />
+      http://www.esmap.org/RE_Resource_Mapping <br />
+    </p>
+  </div>
+  <div class="contentBox">
     <h3>Equipo</h3>
     <ul>
       <li>Roberto Moreno</li>
@@ -19,13 +73,6 @@
       <li>Jose Saavedra</li>
       <li>Alvaro Véliz</li>
     </ul>
-    <hr>
-    <h3>Desarrollo</h3>
-    <p>
-      Aplicación desarrollada con la integración de tecnologías como <strong>PHP, HTML5, Javascript, CSS3, Bash.</strong>
-      <br />
-      <span class="icon-github"></span> Disponible en el repositorio: <a href="https://github.com/spaceappchile/team13">https://github.com/spaceappchile/team13</a>
-    </p>
   </div>
 </div>
 {% endblock content %}
