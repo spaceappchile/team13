@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% set mainMenu = 'processes' %}
+
+{% block content %}
+<div class="contentTitle">
+  <h1><span class="icon-cog"></span> Processes</h1>
+  <h2>View the process data</h2>  
+</div>
+
+<div class="contentBox">
+  <table class="table" width="100%">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Array</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Last Step</th>
+        <th>Last Status</th>        
+      </tr>
+    </thead>
+  </table>
+</div>
+{% endblock content %}

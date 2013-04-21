@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>{% block title %}SpaceApps_CL - Team 13 - GetLucky{% endblock title %}</title>
   <link rel="stylesheet" href="{{ asset('stylesheets/app.css') }}" />
+  <link rel="stylesheet" href="{{ asset('stylesheets/fonts/fontello.css') }}" />
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/jqplot/src/jquery.jqplot.css') }}" />
   <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('vendor/jqplot/src/jquery.jqplot.js') }}"></script>
@@ -33,9 +34,9 @@
           </a>
         </li>
         <li>
-          <a href="javascript:void(0);" class="{% if mainMenu == 'realtime' %}current{% endif %}">
-            <span class="icon-clock"></span>
-            RealTime
+          <a href="{{ path('processes') }}" class="{% if mainMenu == 'processes' %}current{% endif %}">
+            <span class="icon-chart-bar"></span>
+            Processes
           </a>
         </li>
         <li>

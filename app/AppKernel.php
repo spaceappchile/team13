@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new GL\MainBundle\GLMainBundle(),
             new GL\AdminBundle\GLAdminBundle(),
             new GL\InsightsBundle\GLInsightsBundle(),
+            new GL\ProcessBundle\GLProcessBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

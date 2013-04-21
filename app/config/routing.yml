@@ -1,3 +1,8 @@
+gl_process:
+    resource: "@GLProcessBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 gl_insights:
     resource: "@GLInsightsBundle/Controller/"
     type:     annotation

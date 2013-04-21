@@ -12,16 +12,16 @@
   <form action="{{ path('admin_sequence_step_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
     <p>
-      <button type="submit" class="btn">Save</button>
+      <button type="submit" class="btn gbtn"><span class="icon-check"></span> Save</button>
     </p>
   </form>
   
   <hr>
   <form action="{{ path('admin_sequence_step_delete', { 'id': entity.id }) }}" method="post">
     {{ form_widget(delete_form) }}
-    <button type="submit" class="btn sbtn">Delete</button>
+    <button type="submit" class="btn sbtn rbtn"><span class="icon-cancel"></span> Delete</button>
   </form>
 
-  <a href="{{ path('admin_sequence_step') }}">Back to the list</a>
+  <a href="{{ path('admin_sequence_step') }}"><span class="icon-left-bold"></span> Back to the list</a>
 </div>
 {% endblock content %}
